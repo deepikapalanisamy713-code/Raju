@@ -1,34 +1,43 @@
-  MOBILE RESPONSIVE FIX
-========================= */
-
 @media (max-width:768px){
 
 body{
     overflow-x:hidden;
     overflow-y:auto;
+    height:auto;
 }
 
-/* Main Layout */
-
-@media (max-width:768px){
+/* Layout */
 
 .hero{
+    display:flex;
     flex-direction:row;
     align-items:center;
     justify-content:space-between;
+    min-height:100vh;
     padding:15px;
-    gap:10px;
+    gap:15px;
 }
+
+/* Left */
 
 .left{
     width:40%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .cutout{
     width:100%;
-    max-width:180px;
+    max-width:170px;
     height:auto;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,255,255,.2))
+    drop-shadow(0 0 30px rgba(59,130,246,.5));
 }
+
+/* Right */
 
 .right{
     width:60%;
@@ -36,25 +45,53 @@ body{
 }
 
 .right h3{
-    font-size:12px;
+    width:100%;
     letter-spacing:2px;
+    font-size:12px;
+    font-weight:400;
+    color:#cbd5e1;
+    margin-bottom:5px;
 }
 
 .right h1{
-    font-size:2rem;
+    font-size:2.2rem;
+    line-height:1.1;
     margin:8px 0;
 }
 
 .right p{
     font-size:14px;
     line-height:1.5;
+    color:#e2e8f0;
     padding:0;
 }
 
-.btn{
-    width:auto;
+.destination{
     font-size:14px;
-    padding:10px 20px;
-    margin-top:15px;
+    margin-top:10px;
 }
+
+/* Button */
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 20px;
+    font-size:14px;
+    border-radius:40px;
+}
+
+/* Images */
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+/* Prevent overflow */
+
+*{
+    max-width:100%;
+}
+
 }
