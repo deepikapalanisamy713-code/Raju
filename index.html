@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Sunshine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="bgMusic" loop>
+    <source src="Bday.mp3" type="audio/mp3">
+</audio>
+<div class="bg-animation"></div>
+
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<section class="hero">
+
+    <div class="left">
+
+        <img src="He.jpeg" class="cutout">
+
+    </div>
+
+    <div class="right">
+
+        <h3>HAPPY BIRTHDAY</h3>
+
+        <h1>Raju💙</h1>
+
+        <p>
+            Chase Every Dream Fearlessly. Your Journey To Greatness Has Just Begun
+        </p>
+        
+
+       
+
+        <a href="slide2.html" class="btn">
+            Click To Start→
+        </a>
+
+    </div>
+
+
+</section>
+<script>
+
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+
+    music.play();
+
+}, { once: true });
+
+</script>
+
+
+</body>
+</html>

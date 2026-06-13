@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Last Question ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:#050505;
+    color:white;
+    font-family:'Poppins',sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    overflow:hidden;
+}
+
+/* Floating Hearts */
+
+.love-bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    display:none;
+}
+
+.love-bg span{
+    position:absolute;
+    color:rgba(255,255,255,.9);
+    animation:floatLove linear infinite;
+}
+
+@keyframes floatLove{
+
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    z-index:10;
+}
+
+.title{
+    font-family:'Playfair Display',serif;
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    margin-bottom:50px;
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:16px 45px;
+    border-radius:50px;
+    font-size:1rem;
+    transition:.4s;
+}
+
+.yes{
+    background:#2563eb;
+    color:white;
+
+    box-shadow:
+    0 0 15px #2563eb;
+}
+
+.no{
+    background:white;
+    color:black;
+}
+
+button:hover{
+    transform:translateY(-5px);
+}
+
+.message{
+    margin-top:40px;
+    line-height:2;
+    font-size:1.15rem;
+    display:none;
+    animation:fadeIn 1s ease;
+}
+
+.highlight{
+    color:#60a5fa;
+    font-weight:600;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+.title{
+    font-size:2.5rem;
+}
+
+.message{
+    font-size:1rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<div id="love-bg" class="love-bg"></div>
+
+<div class="container">
+
+    <h1 class="title">
+        Will You Give Us Another Chance? ❤️
+    </h1>
+
+    <p class="subtitle">
+        No pressure... just one honest question from my heart.
+    </p>
+
+    <div class="buttons">
+
+        <button class="yes" onclick="showYes()">
+            YES ❤️
+        </button>
+
+        <button class="no" onclick="showNo()">
+            NO 🤍
+        </button>
+
+    </div>
+
+    <div id="result" class="message"></div>
+
+</div>
+
+<!-- Songs -->
+
+<audio id="yesSong">
+    <source src="yes.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="noSong">
+    <source src="no.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const yesSong = document.getElementById("yesSong");
+const noSong = document.getElementById("noSong");
+const result = document.getElementById("result");
+
+function createLoveEffect(){
+
+    const loveBg = document.getElementById("love-bg");
+
+    loveBg.innerHTML = "";
+    loveBg.style.display = "block";
+
+    const items = [
+        "🤍",
+        "❤️",
+        "WANNA BE YOURS",
+        "FOREVER",
+        "LOVE",
+        "MY MAN"
+    ];
+
+    for(let i = 0; i < 60; i++){
+
+        const span = document.createElement("span");
+
+        span.innerHTML =
+        items[Math.floor(Math.random() * items.length)];
+
+        span.style.left =
+        Math.random() * 100 + "%";
+
+        span.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+        span.style.animationDuration =
+        (6 + Math.random() * 6) + "s";
+
+        loveBg.appendChild(span);
+    }
+}
+
+function showYes(){
+
+    fetch("https://formspree.io/f/xgobnjnd",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        },
+        body:JSON.stringify({
+            response:"YES ❤️",
+            time:new Date().toLocaleString()
+        })
+    });
+
+    noSong.pause();
+    noSong.currentTime = 0;
+
+    yesSong.play();
+
+    createLoveEffect();
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+
+    <div class="highlight">
+        LET'S TALK 🤍
+    </div>
+
+    <br>
+
+    WE RESTART OUR JOURNEY TOGETHER ❤️
+
+    <br><br>
+
+    Thank you for giving us another chance.
+
+    <br>
+
+    Whatever happened in the past,
+    let's build something stronger,
+    happier and more beautiful together.
+
+    <br><br>
+
+    ❤️ Forever Us ❤️
+
+    `;
+}
+
+function showNo(){
+
+    fetch("https://formspree.io/f/xgobnjnd",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        },
+        body:JSON.stringify({
+            response:"NO 🤍",
+            time:new Date().toLocaleString()
+        })
+    });
+
+    yesSong.pause();
+    yesSong.currentTime = 0;
+
+    noSong.play();
+
+    document.getElementById("love-bg").style.display = "none";
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+
+    Thank you for everything.
+
+    <br><br>
+
+    SORRY for all I'm sorry for whatever I said.
+    I only said those things because I wanted to patch things up with you.
+
+    <br><br>
+
+    It may have been only a limited time with you,
+    but I am happy for every moment we shared.
+
+    <br><br>
+
+    If you feel happier without me,
+    I will quietly move away from your life
+    for your happiness.
+
+    <br><br>
+
+    <span class="highlight">
+    FOREVER I LOVE YOU & I MISS YOU ❤️
+    </span>
+
+    <br><br>
+
+    I AM SO PROUD OF YOU,
+    MY MAN.
+
+    <br><br>
+
+    YOU CAN SAY THAT I AM A FOOL,
+    BUT I THINK THEY CALL THIS LOVE 🤍
+
+    `;
+}
+
+</script>
+</body>
+</html>
