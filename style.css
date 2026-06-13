@@ -207,3 +207,53 @@ body{overflow:auto;}
 .right p{font-size:1rem;line-height:1.8;padding:0 10px;}
 .btn{margin-bottom:20px;}
 }
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+
+  .profile-img,
+  img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .name,
+  h1 {
+    font-size: 40px !important;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.2;
+  }
+
+  .tagline,
+  p {
+    font-size: 16px !important;
+    text-align: center;
+    padding: 0 15px;
+    line-height: 1.5;
+  }
+
+  .btn,
+  button,
+  .start-btn {
+    width: 85% !important;
+    max-width: 320px;
+    font-size: 24px !important;
+    padding: 15px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .content,
+  .slide {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
