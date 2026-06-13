@@ -10,48 +10,51 @@ body{
 
 /* Main Layout */
 
+@media (max-width:768px){
+
 .hero{
-    flex-direction:column;
-    justify-content:center;
+    flex-direction:row;
     align-items:center;
-    text-align:center;
-    padding:20px 15px;
-    height:auto;
-    min-height:100vh;
+    justify-content:space-between;
+    padding:15px;
+    gap:10px;
 }
 
-/* Left Section */
-
 .left{
-    width:100%;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:20px;
+    width:40%;
 }
 
 .cutout{
-    width:85%;
-    max-width:300px;
+    width:100%;
+    max-width:180px;
     height:auto;
 }
 
-/* Right Section */
-
 .right{
-    width:100%;
+    width:60%;
+    text-align:left;
 }
 
 .right h3{
-    width:100%;
-    font-size:14px;
-    letter-spacing:4px;
-    margin-bottom:10px;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
 .right h1{
-    font-size:3rem;
-    line-height:1.2;
-    margin:10px 0;
+    font-size:2rem;
+    margin:8px 0;
 }
 
-.rig…
+.right p{
+    font-size:14px;
+    line-height:1.5;
+    padding:0;
+}
+
+.btn{
+    width:auto;
+    font-size:14px;
+    padding:10px 20px;
+    margin-top:15px;
+}
+}
